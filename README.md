@@ -12,6 +12,18 @@ Built with ♥ by MazadiaS
 
 ---
 
+## Why I Built This
+
+I needed a productivity tool that actually works with ADHD, not against it. Most task trackers are either too rigid (forcing specific workflows) or too chaotic (no structure at all). Flow solves this by combining:
+
+- **Visual thinking** - Flowchart and mind map views to see the big picture
+- **Flexible completion** - Not everything is binary done/not-done; sometimes tasks are partial or skipped
+- **Deep focus mode** - Fullscreen timer to block distractions during work sessions
+- **Goal alignment** - See how today's tasks connect to long-term goals
+- **Complete privacy** - All data stays local; optional self-hosted backup
+
+I built Flow to scratch my own itch: a task tracker that respects how my brain actually works.
+
 ## Overview
 
 Flow is a comprehensive productivity application designed with ADHD-friendly principles. It combines task tracking, goal planning, timeline visualization, and student mode to help you stay focused and organized.
