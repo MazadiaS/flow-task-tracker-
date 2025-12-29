@@ -1,0 +1,77 @@
+.error-boundary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  padding: 20px;
+}
+
+.error-content {
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  border-radius: 20px;
+  padding: 48px;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.error-content h1 {
+  font-size: 32px;
+  margin: 0 0 16px 0;
+  background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.error-message {
+  color: #ccc;
+  font-size: 16px;
+  margin: 0 0 32px 0;
+  line-height: 1.6;
+}
+
+.error-details {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.error-details summary {
+  color: #999;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 12px;
+  user-select: none;
+}
+
+.error-details summary:hover {
+  color: #ccc;
+}
+
+.error-details pre {
+  color: #f5576c;
+  font-size: 12px;
+  overflow-x: auto;
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.error-content .btn {
+  padding: 14px 32px;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .error-content {
+    padding: 32px 24px;
+  }
+
+  .error-content h1 {
+    font-size: 24px;
+  }
+}

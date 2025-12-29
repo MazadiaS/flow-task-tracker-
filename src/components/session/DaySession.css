@@ -1,0 +1,314 @@
+.day-session-start {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 40px;
+  animation: fadeIn 0.5s ease;
+}
+
+.start-day-container {
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+}
+
+.app-title {
+  font-size: 3.5rem;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.current-date {
+  font-size: 1.4rem;
+  margin-bottom: 60px;
+  color: #999;
+  font-weight: 400;
+}
+
+.bottom-links {
+  margin-top: 60px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.link-btn {
+  background: transparent;
+  border: 1px solid #404040;
+  color: #999;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.link-btn:hover {
+  background-color: #1a1a1a;
+  border-color: #667eea;
+  color: #f0f0f0;
+}
+
+.btn-start-day {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 28px 80px;
+  font-size: 28px;
+  font-weight: 700;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-start-day:hover {
+  background: linear-gradient(135deg, #7e94ff 0%, #8a5ab8 100%);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(102, 126, 234, 0.5);
+}
+
+.btn-start-day:active {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.day-session-active {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+  border-bottom: 2px solid #333;
+  animation: slideIn 0.5s ease;
+}
+
+.day-info {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.day-started {
+  color: #999;
+  font-size: 14px;
+}
+
+.day-duration {
+  color: #667eea;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.btn-end-day {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-end-day:hover {
+  background: linear-gradient(135deg, #ffa5ff 0%, #ff6980 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 87, 108, 0.3);
+}
+
+.day-summary-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.day-summary-content {
+  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+  padding: 40px;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 1px solid #404040;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.day-summary-content h2 {
+  margin-bottom: 30px;
+  color: #fff;
+  text-align: center;
+}
+
+.summary-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #0a0a0a;
+  border-radius: 8px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.stat-label {
+  color: #999;
+  font-size: 14px;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #f0f0f0;
+}
+
+.stat-value.active {
+  color: #38ef7d;
+}
+
+.stat-value.inactive {
+  color: #f5576c;
+}
+
+.task-breakdown {
+  margin-bottom: 30px;
+}
+
+.task-breakdown h3 {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.task-breakdown ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-session-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background-color: #0a0a0a;
+  border-radius: 8px;
+  border-left: 3px solid #667eea;
+}
+
+.task-icon {
+  font-size: 20px;
+}
+
+.task-name {
+  flex: 1;
+  color: #f0f0f0;
+}
+
+.task-value {
+  color: #999;
+  font-weight: 600;
+}
+
+.no-tasks {
+  color: #666;
+  text-align: center;
+  padding: 20px;
+}
+
+.day-summary-content .btn-primary {
+  width: 100%;
+  margin-top: 20px;
+  padding: 16px;
+  font-size: 18px;
+}
+
+.confirm-modal {
+  max-width: 450px;
+  text-align: center;
+}
+
+.confirm-message {
+  font-size: 18px;
+  color: #f0f0f0;
+  margin-bottom: 12px;
+}
+
+.confirm-info {
+  color: #999;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.confirm-actions .btn {
+  flex: 1;
+  padding: 14px 24px;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 2.5rem;
+  }
+
+  .current-date {
+    font-size: 1.1rem;
+  }
+
+  .btn-start-day {
+    padding: 22px 50px;
+    font-size: 22px;
+  }
+
+  .day-session-active {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 20px;
+  }
+
+  .day-info {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .bottom-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .link-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}

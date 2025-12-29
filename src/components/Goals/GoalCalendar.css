@@ -1,0 +1,228 @@
+.goal-calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+}
+
+.calendar-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.calendar-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.calendar-period {
+  flex: 1;
+  text-align: center;
+}
+
+.calendar-period h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #f0f0f0;
+}
+
+.level-selector {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.level-btn {
+  padding: 8px 16px;
+  background: #252525;
+  border: 2px solid #333;
+  border-radius: 8px;
+  color: #999;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.level-btn:hover {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #ccc;
+}
+
+.level-btn.active {
+  background: rgba(102, 126, 234, 0.1);
+  font-weight: 600;
+}
+
+.calendar-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.calendar-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: #666;
+  font-size: 16px;
+}
+
+.calendar-goals {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 16px;
+}
+
+.calendar-goal-card {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.calendar-goal-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-color: #444;
+}
+
+.calendar-goal-card.ahead {
+  border-left: 4px solid #10b981;
+}
+
+.calendar-goal-card.behind {
+  border-left: 4px solid #ef4444;
+}
+
+.calendar-goal-card.on-track {
+  border-left: 4px solid #3b82f6;
+}
+
+.goal-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.goal-card-dates {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #999;
+}
+
+.goal-date-arrow {
+  color: #666;
+}
+
+.goal-level-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+}
+
+.goal-card-title {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: #f0f0f0;
+  line-height: 1.3;
+}
+
+.goal-card-description {
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  color: #999;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.goal-card-progress {
+  margin-bottom: 12px;
+}
+
+.progress-bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #252525;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.progress-actual {
+  color: #ccc;
+  font-weight: 600;
+}
+
+.progress-status {
+  font-weight: 500;
+}
+
+.ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 4px;
+  font-size: 11px;
+  color: #667eea;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .calendar-controls {
+    flex-wrap: wrap;
+  }
+
+  .calendar-period {
+    order: -1;
+    width: 100%;
+  }
+
+  .calendar-period h2 {
+    font-size: 20px;
+  }
+
+  .calendar-goals {
+    grid-template-columns: 1fr;
+  }
+
+  .level-selector {
+    width: 100%;
+    justify-content: center;
+  }
+}

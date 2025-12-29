@@ -1,0 +1,354 @@
+.goal-plan-view {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  min-height: 100vh;
+  background: #0a0a0a;
+}
+
+.goal-plan-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.btn-back {
+  padding: 12px 20px;
+  background: transparent;
+  border: 2px solid #333;
+  border-radius: 8px;
+  color: #f0f0f0;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-back:hover {
+  background: #1a1a1a;
+  border-color: #667eea;
+}
+
+.btn-manage-plans {
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-manage-plans:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-manage-plans:active {
+  transform: translateY(0);
+}
+
+.header-content {
+  flex: 1;
+}
+
+.header-content h1 {
+  font-size: 32px;
+  margin: 0 0 8px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.goal-plan-subtitle {
+  color: #888;
+  font-size: 14px;
+  margin: 0;
+}
+
+.year-goal-summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.goal-dates {
+  font-size: 14px;
+  color: #999;
+}
+
+.goal-progress-bar {
+  flex: 1;
+  min-width: 200px;
+  height: 8px;
+  background: #252525;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.goal-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+.goal-progress-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #667eea;
+  white-space: nowrap;
+}
+
+/* Empty State */
+.goal-plan-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.empty-state {
+  text-align: center;
+  max-width: 500px;
+}
+
+.empty-icon {
+  font-size: 64px;
+  margin-bottom: 24px;
+}
+
+.empty-state h2 {
+  font-size: 28px;
+  margin: 0 0 16px 0;
+  color: #f0f0f0;
+}
+
+.empty-state p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #999;
+  margin: 0 0 32px 0;
+}
+
+.empty-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Content Area */
+.goal-plan-content {
+  background: #1a1a1a;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+/* Tab Navigation */
+.goal-plan-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #252525;
+}
+
+.tab-button {
+  padding: 12px 24px;
+  background: transparent;
+  border: 2px solid #333;
+  border-radius: 8px;
+  color: #999;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.tab-button:hover {
+  background: #252525;
+  border-color: #444;
+  color: #f0f0f0;
+}
+
+.tab-button.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.tab-button.active:hover {
+  background: linear-gradient(135deg, #7c92f0 0%, #8659b0 100%);
+}
+
+.goal-plan-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #252525;
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toolbar-left h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #f0f0f0;
+}
+
+.goal-count {
+  font-size: 14px;
+  color: #999;
+  padding: 4px 12px;
+  background: #252525;
+  border-radius: 12px;
+}
+
+.toolbar-right {
+  display: flex;
+  gap: 12px;
+}
+
+/* Year Goals Container */
+.year-goals-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.year-goal-section {
+  background: #0d0d0d;
+  border: 2px solid #252525;
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.2s ease;
+}
+
+.year-goal-section:hover {
+  border-color: #333;
+}
+
+.year-goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #252525;
+}
+
+.year-goal-info h3 {
+  font-size: 24px;
+  margin: 0 0 8px 0;
+  color: #f0f0f0;
+}
+
+.year-goal-info .goal-dates {
+  color: #888;
+  font-size: 14px;
+}
+
+.year-goal-stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: #666;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .goal-plan-view {
+    padding: 16px;
+  }
+
+  .goal-plan-header {
+    flex-direction: column;
+  }
+
+  .header-content h1 {
+    font-size: 24px;
+  }
+
+  .year-goal-summary {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .year-goal-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .year-goal-stats {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .goal-plan-toolbar {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .toolbar-right {
+    width: 100%;
+  }
+
+  .toolbar-right button {
+    width: 100%;
+  }
+
+  .goal-progress-bar {
+    min-width: 100%;
+  }
+
+  .goal-plan-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .toolbar-left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .toolbar-right {
+    justify-content: stretch;
+  }
+
+  .toolbar-right button {
+    flex: 1;
+  }
+}

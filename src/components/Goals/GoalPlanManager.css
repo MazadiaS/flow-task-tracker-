@@ -1,0 +1,275 @@
+.goal-plan-manager-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.goal-plan-manager {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+  border: 2px solid #333;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease;
+}
+
+.manager-header {
+  padding: 20px 24px;
+  border-bottom: 2px solid #252525;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(13, 13, 13, 0.8);
+}
+
+.manager-header h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #f0f0f0;
+  font-weight: 600;
+}
+
+.manager-close-btn {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.manager-close-btn:hover {
+  color: #f0f0f0;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.manager-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px;
+  scrollbar-width: thin;
+  scrollbar-color: #333 transparent;
+}
+
+.manager-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.manager-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.manager-content::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+.manager-content::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+.empty-plans {
+  text-align: center;
+  padding: 60px 20px;
+  color: #888;
+}
+
+.empty-plans p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.plans-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.plan-item {
+  background: rgba(26, 26, 26, 0.6);
+  border: 2px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.plan-item:hover {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.05);
+}
+
+.plan-item.current {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.plan-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.plan-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.plan-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #f0f0f0;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.current-badge {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.active-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.plan-year-goal {
+  margin: 4px 0;
+  font-size: 13px;
+  color: #aaa;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.plan-date {
+  margin: 4px 0 0 0;
+  font-size: 12px;
+  color: #666;
+}
+
+.plan-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.btn-delete {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-delete:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.btn-delete:active {
+  transform: translateY(0);
+}
+
+.manager-footer {
+  padding: 16px 24px;
+  border-top: 2px solid #252525;
+  background: rgba(13, 13, 13, 0.8);
+}
+
+.manager-footer .hint {
+  margin: 0;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .goal-plan-manager {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .plan-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .plan-actions {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .btn-delete {
+    width: 100%;
+    justify-content: center;
+  }
+}

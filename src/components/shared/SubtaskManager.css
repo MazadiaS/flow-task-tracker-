@@ -1,0 +1,300 @@
+.subtask-manager {
+  border-left: 3px solid rgba(102, 126, 234, 0.3);
+  padding-left: 16px;
+  margin-top: 12px;
+}
+
+.subtasks-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 8px;
+}
+
+.subtasks-header:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.collapse-icon {
+  font-size: 12px;
+  color: #999;
+  transition: transform 0.2s ease;
+}
+
+.subtasks-count {
+  font-size: 13px;
+  color: #999;
+  font-weight: 600;
+}
+
+.subtasks-list {
+  margin-bottom: 12px;
+}
+
+.subtask-item {
+  margin-bottom: 8px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.subtask-content {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+  border: 1px solid #333;
+  border-left: 4px solid;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  margin-bottom: 10px;
+}
+
+.subtask-content:hover {
+  border-color: #667eea;
+  background: linear-gradient(135deg, #1f1f1f 0%, #2a2a2a 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.subtask-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.subtask-number {
+  font-size: 12px;
+  color: #666;
+  font-weight: 600;
+  min-width: 28px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.subtask-icon {
+  font-size: 18px;
+}
+
+.subtask-name {
+  flex: 1;
+  color: #f0f0f0;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.btn-notes-toggle {
+  background: transparent;
+  border: 1px solid #404040;
+  color: #999;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.btn-notes-toggle:hover {
+  background-color: rgba(102, 126, 234, 0.1);
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.btn-delete-subtask {
+  background: transparent;
+  border: 1px solid #404040;
+  color: #999;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.subtask-content:hover .btn-delete-subtask {
+  opacity: 1;
+}
+
+.btn-delete-subtask:hover {
+  background-color: #f5576c;
+  border-color: #f5576c;
+  color: white;
+}
+
+.subtask-notes-section {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #333;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 300px;
+  }
+}
+
+.notes-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subtask-notes-textarea {
+  width: 100%;
+  min-height: 80px;
+  background-color: #0a0a0a;
+  border: 1px solid #404040;
+  border-radius: 6px;
+  padding: 10px;
+  color: #f0f0f0;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.subtask-notes-textarea:focus {
+  border-color: #667eea;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.notes-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.notes-display {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.notes-text {
+  flex: 1;
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+}
+
+.btn-edit-notes,
+.btn-add-notes {
+  background: transparent;
+  border: 1px dashed #404040;
+  color: #999;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.btn-edit-notes:hover,
+.btn-add-notes:hover {
+  border-color: #667eea;
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.05);
+}
+
+.add-subtask-section {
+  margin-top: 8px;
+}
+
+.btn-add-subtask {
+  background: transparent;
+  border: 1px dashed #404040;
+  color: #999;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.btn-add-subtask:hover {
+  border-color: #667eea;
+  color: #667eea;
+  background-color: rgba(102, 126, 234, 0.05);
+}
+
+.add-subtask-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.add-subtask-form input {
+  background-color: #0a0a0a;
+  border: 1px solid #404040;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #f0f0f0;
+  font-size: 14px;
+}
+
+.add-subtask-form input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+/* Depth-based styling */
+.subtask-manager[style*="margin-left: 20px"] .subtask-content {
+  background: linear-gradient(135deg, #151515 0%, #202020 100%);
+}
+
+.subtask-manager[style*="margin-left: 40px"] .subtask-content {
+  background: linear-gradient(135deg, #121212 0%, #1d1d1d 100%);
+}
+
+.subtask-manager[style*="margin-left: 60px"] .subtask-content {
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+}
+
+.subtask-manager[style*="margin-left: 80px"] .subtask-content {
+  background: linear-gradient(135deg, #0d0d0d 0%, #171717 100%);
+}

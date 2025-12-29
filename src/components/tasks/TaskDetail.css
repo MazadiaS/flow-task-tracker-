@@ -1,0 +1,387 @@
+.task-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+.task-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.task-detail-header h1 {
+  flex: 1;
+  font-size: 2rem;
+}
+
+.timer-section,
+.count-section,
+.completion-section,
+.homework-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+  border-radius: 16px;
+  padding: 40px;
+  margin-bottom: 30px;
+  border: 1px solid #333;
+}
+
+.target-info {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.timer-display-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.timer-display {
+  font-size: 4rem;
+  font-weight: 300;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+.btn-fullscreen {
+  background-color: #2a2a2a;
+  border: 1px solid #404040;
+  color: #999;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.2s ease;
+}
+
+.btn-fullscreen:hover:not(:disabled) {
+  background-color: #353535;
+  color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.btn-fullscreen:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.session-notes-input {
+  margin-top: 20px;
+}
+
+.session-notes-input textarea {
+  width: 100%;
+  min-height: 80px;
+  background-color: #0a0a0a;
+  border: 1px solid #404040;
+  border-radius: 8px;
+  padding: 12px;
+  color: #f0f0f0;
+  font-size: 14px;
+}
+
+.session-notes-input textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.count-input-container {
+  text-align: center;
+}
+
+.count-input-container p {
+  margin-bottom: 20px;
+  color: #999;
+}
+
+.count-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.btn-count {
+  background-color: #2a2a2a;
+  border: 1px solid #404040;
+  color: #f0f0f0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-count:hover {
+  background-color: #353535;
+  transform: scale(1.1);
+}
+
+.count-input {
+  width: 120px;
+  height: 60px;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  background-color: #0a0a0a;
+  border: 2px solid #404040;
+  border-radius: 12px;
+  color: #fff;
+}
+
+.count-input:focus {
+  border-color: #667eea;
+}
+
+.btn-log {
+  padding: 16px 48px;
+  font-size: 18px;
+}
+
+.completion-section {
+  text-align: center;
+}
+
+.completion-status p {
+  margin-bottom: 20px;
+  color: #999;
+}
+
+.btn-completion {
+  background: linear-gradient(135deg, #2a2a2a 0%, #353535 100%);
+  color: #f0f0f0;
+  padding: 20px 48px;
+  font-size: 20px;
+  border: 2px solid #404040;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.completion-icon {
+  font-size: 24px;
+}
+
+.btn-completion:hover {
+  transform: translateY(-2px);
+  border-color: #11998e;
+}
+
+.btn-completion.completed {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  border-color: #38ef7d;
+  color: white;
+}
+
+.subtasks-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 30px;
+  border: 1px solid #333;
+}
+
+.subtasks-section h2 {
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+.section-description {
+  color: #999;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.notes-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 30px;
+  border: 1px solid #333;
+}
+
+.notes-section h2 {
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.notes-textarea {
+  width: 100%;
+  min-height: 150px;
+  background-color: #0a0a0a;
+  border: 1px solid #404040;
+  border-radius: 8px;
+  padding: 16px;
+  color: #f0f0f0;
+  font-size: 15px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.history-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+  border-radius: 16px;
+  padding: 30px;
+  border: 1px solid #333;
+}
+
+.history-section h2 {
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.history-item {
+  background-color: #0a0a0a;
+  border-radius: 8px;
+  padding: 16px;
+  border-left: 3px solid #667eea;
+  transition: all 0.2s ease;
+}
+
+.history-item:hover {
+  background-color: #151515;
+  transform: translateX(5px);
+}
+
+.history-date {
+  color: #999;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.history-duration,
+.history-count,
+.history-status {
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.history-notes {
+  color: #ccc;
+  font-size: 14px;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+.no-history {
+  text-align: center;
+  color: #666;
+  padding: 40px 20px;
+}
+
+@media (max-width: 768px) {
+  .timer-display {
+    font-size: 3rem;
+  }
+
+  .timer-section,
+  .count-section,
+  .completion-section,
+  .notes-section,
+  .history-section {
+    padding: 24px;
+  }
+
+  .count-input {
+    width: 100px;
+    height: 50px;
+    font-size: 28px;
+  }
+}
+
+/* Homework Section Styles */
+.homework-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.homework-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.info-label {
+  font-size: 12px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.info-value {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.homework-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.submitted-badge {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+@media (max-width: 768px) {
+  .homework-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .homework-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .homework-actions button {
+    width: 100%;
+  }
+}

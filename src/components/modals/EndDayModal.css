@@ -1,0 +1,208 @@
+.end-day-modal {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+  animation: slideUp 0.3s ease-out;
+}
+
+.end-day-modal h2 {
+  margin: 0 0 16px 0;
+  font-size: 28px;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.end-day-modal h3.task-name-display {
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  margin: 0 0 24px 0;
+  font-weight: 500;
+}
+
+.incomplete-warning {
+  background: rgba(251, 146, 60, 0.1);
+  border: 1px solid rgba(251, 146, 60, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.incomplete-warning p {
+  color: #fb923c;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  text-align: center;
+}
+
+.incomplete-list-preview {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.incomplete-list-preview li {
+  color: #ccc;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.incomplete-list-preview li:last-child {
+  border-bottom: none;
+}
+
+.confirm-text {
+  text-align: center;
+  color: #aaa;
+  font-size: 16px;
+  margin: 20px 0 32px 0;
+}
+
+.progress-indicator {
+  text-align: center;
+  color: #667eea;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.reason-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.reason-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  border-radius: 12px;
+  color: #ccc;
+  padding: 16px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reason-btn:hover {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.reason-btn.selected {
+  border-color: #667eea;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  transform: scale(1.02);
+}
+
+.custom-reason-input {
+  margin-bottom: 20px;
+}
+
+.custom-reason-input input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: white;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.custom-reason-input input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.custom-reason-input input::placeholder {
+  color: #666;
+}
+
+.remind-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 24px;
+  transition: all 0.2s ease;
+}
+
+.remind-checkbox:hover {
+  background: rgba(16, 185, 129, 0.15);
+}
+
+.remind-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #10b981;
+}
+
+.remind-checkbox span {
+  color: #10b981;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #999;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-ghost:hover {
+  color: #ccc;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .end-day-modal {
+    padding: 24px;
+  }
+
+  .end-day-modal h2 {
+    font-size: 22px;
+  }
+
+  .reason-options {
+    grid-template-columns: 1fr;
+  }
+
+  .reason-btn {
+    padding: 14px;
+    font-size: 14px;
+  }
+}

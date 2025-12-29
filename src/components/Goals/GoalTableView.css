@@ -1,0 +1,332 @@
+.goal-table-view {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Controls */
+.table-controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 250px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 16px;
+  background: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 8px;
+  color: #f0f0f0;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.search-input::placeholder {
+  color: #666;
+}
+
+.filter-group {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-select {
+  padding: 10px 16px;
+  background: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 8px;
+  color: #f0f0f0;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.filter-select:hover {
+  border-color: #444;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.table-info {
+  color: #888;
+  font-size: 14px;
+  padding: 10px 16px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  border: 2px solid #252525;
+}
+
+/* Table Container */
+.table-container {
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #252525;
+}
+
+.goals-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Table Header */
+.goals-table thead {
+  background: #0d0d0d;
+  border-bottom: 2px solid #252525;
+}
+
+.goals-table th {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.goals-table th.sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.goals-table th.sortable:hover {
+  background: #1a1a1a;
+  color: #f0f0f0;
+}
+
+/* Column Widths */
+.level-col {
+  width: 100px;
+}
+
+.status-col {
+  width: 120px;
+}
+
+.date-col {
+  width: 110px;
+}
+
+.progress-col {
+  width: 180px;
+}
+
+.children-col {
+  width: 80px;
+  text-align: center;
+}
+
+.actions-col {
+  width: 100px;
+  text-align: center;
+}
+
+/* Table Body */
+.goals-table tbody tr {
+  border-bottom: 1px solid #252525;
+  transition: background 0.2s ease;
+}
+
+.goals-table tbody tr:hover {
+  background: #222;
+}
+
+.goals-table td {
+  padding: 16px;
+  font-size: 14px;
+  color: #f0f0f0;
+}
+
+/* Title Cell */
+.title-cell {
+  max-width: 300px;
+}
+
+.title-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.goal-title {
+  font-weight: 500;
+  color: #f0f0f0;
+}
+
+.goal-description {
+  font-size: 12px;
+  color: #888;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Badge Styles */
+.level-badge,
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+/* Progress Cell */
+.progress-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.progress-bar-container {
+  flex: 1;
+  height: 6px;
+  background: #333;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 13px;
+  font-weight: 600;
+  min-width: 40px;
+  color: #f0f0f0;
+}
+
+.progress-status {
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 60px;
+}
+
+/* Children Cell */
+.children-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  background: #333;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #f0f0f0;
+}
+
+/* Actions */
+.actions-cell {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.btn-table {
+  padding: 6px 10px;
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #f0f0f0;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-table:hover {
+  background: #333;
+  transform: scale(1.1);
+}
+
+.btn-edit:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.btn-delete:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* Empty State */
+.empty-table {
+  padding: 48px 24px;
+  text-align: center;
+  color: #666;
+}
+
+.empty-table p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .goals-table {
+    font-size: 13px;
+  }
+
+  .goal-description {
+    display: none;
+  }
+
+  .progress-status {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box {
+    min-width: 100%;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .filter-select {
+    flex: 1;
+  }
+
+  .table-info {
+    text-align: center;
+  }
+
+  /* Stack table on mobile */
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .goals-table {
+    min-width: 800px;
+  }
+}

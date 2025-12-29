@@ -1,0 +1,181 @@
+/* Import shared animations and utilities */
+@import './shared-animations.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* ADHD-Friendly Design System */
+
+  /* Modern Typography - Better readability */
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto',
+    'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  /* Spacing System - Consistent & Predictable */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+
+  /* Modern Color Palette - Softer, Less Intense */
+  --color-bg-primary: #0f1419;
+  --color-bg-secondary: #1a1f29;
+  --color-bg-tertiary: #22272e;
+  --color-bg-elevated: #2d333b;
+
+  --color-text-primary: #e6edf3;
+  --color-text-secondary: #adbac7;
+  --color-text-tertiary: #768390;
+
+  --color-border: #373e47;
+  --color-border-hover: #444c56;
+  --color-border-focus: #539bf5;
+
+  /* Accent Colors - Calmer, ADHD-Friendly */
+  --color-primary: #539bf5;
+  --color-primary-hover: #6cb6ff;
+  --color-primary-light: rgba(83, 155, 245, 0.1);
+
+  --color-success: #57ab5a;
+  --color-success-light: rgba(87, 171, 90, 0.1);
+
+  --color-warning: #c69026;
+  --color-warning-light: rgba(198, 144, 38, 0.1);
+
+  --color-danger: #e5534b;
+  --color-danger-light: rgba(229, 83, 75, 0.1);
+
+  /* Shadows - Subtle depth */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+  /* Border Radius - Consistent roundness */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Transitions - Smooth, not jarring */
+  --transition-fast: 150ms ease;
+  --transition-medium: 250ms ease;
+  --transition-slow: 350ms ease;
+
+  color-scheme: dark;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Typography - Clear hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Form Elements - Better focus states for ADHD */
+input, textarea, select {
+  font-family: inherit;
+  font-size: 15px;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  outline: none;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+input:hover, textarea:hover, select:hover {
+  border-color: var(--color-border-hover);
+  background-color: var(--color-bg-tertiary);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--color-border-focus);
+  background-color: var(--color-bg-tertiary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+/* Custom Scrollbar - Minimal distraction */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-elevated);
+  border-radius: 6px;
+  border: 2px solid var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-hover);
+}
