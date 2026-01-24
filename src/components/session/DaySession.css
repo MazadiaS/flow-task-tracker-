@@ -1,10 +1,18 @@
 .day-session-start {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 70vh;
   padding: 40px;
   animation: fadeIn 0.5s ease;
+  position: relative;
+}
+
+.user-menu-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 .start-day-container {
@@ -106,6 +114,12 @@
   color: #667eea;
   font-size: 18px;
   font-weight: 600;
+}
+
+.session-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .btn-end-day {

@@ -8,11 +8,15 @@ import { debounce } from '../utils/debounce';
 import { triggerAutoSync, initAutoSync } from '../utils/gistSync';
 import { requestNotificationPermission } from '../utils/notifications';
 import { DEBOUNCE_DELAY_MS } from '../constants';
+import { useAuth } from './AuthContext';
+import { saveStateToCloud, loadStateFromCloud } from '../utils/cloudStorage';
 
 interface AppContextType {
   state: AppState;
   setState: React.Dispatch<React.SetStateAction<AppState>>;
   isDeveloperMode: boolean;
+  isSyncing: boolean;
+  lastSyncTime: number | null;
   // Task handlers
   handleAddTask: (task: Task) => void;
   handleUpdateTask: (updatedTask: Task) => void;
@@ -31,6 +35,9 @@ const AppContext = createContext<AppContextType | null>(null);
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<AppState>(getInitialState());
+  const [isSyncing, setIsSyncing] = useState(false);
+  const [lastSyncTime, setLastSyncTime] = useState<number | null>(null);
+  const { user } = useAuth();
 
   // Check developer mode from sessionStorage
   const isDeveloperMode = sessionStorage.getItem('developer-mode') === 'true';
@@ -41,11 +48,48 @@ export function AppProvider({ children }: { children: ReactNode }) {
     []
   );
 
+  // Debounced save to cloud
+  const debouncedSaveToCloud = useMemo(
+    () => debounce(async (userId: string, appState: AppState) => {
+      setIsSyncing(true);
+      const success = await saveStateToCloud(userId, appState);
+      if (success) {
+        setLastSyncTime(Date.now());
+      }
+      setIsSyncing(false);
+    }, DEBOUNCE_DELAY_MS * 2), // Slightly longer debounce for cloud
+    []
+  );
+
+  // Load from cloud when user logs in
   useEffect(() => {
+    if (user) {
+      setIsSyncing(true);
+      loadStateFromCloud(user.id).then(cloudState => {
+        if (cloudState) {
+          // Merge cloud state with local state (cloud takes priority if newer)
+          setState(cloudState);
+        } else {
+          // First time user - save current local state to cloud
+          saveStateToCloud(user.id, state);
+        }
+        setLastSyncTime(Date.now());
+        setIsSyncing(false);
+      });
+    }
+  }, [user?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    // Always save to localStorage
     debouncedSaveState(state);
     // Trigger auto-sync when state changes
     triggerAutoSync();
-  }, [state, debouncedSaveState]);
+
+    // Also save to cloud if user is logged in
+    if (user) {
+      debouncedSaveToCloud(user.id, state);
+    }
+  }, [state, debouncedSaveState, debouncedSaveToCloud, user]);
 
   // Initialize auto-sync and request notification permission on app startup
   useEffect(() => {
@@ -257,6 +301,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
     state,
     setState,
     isDeveloperMode,
+    isSyncing,
+    lastSyncTime,
     handleAddTask,
     handleUpdateTask,
     handleDeleteTask,
@@ -270,6 +316,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }), [
     state,
     isDeveloperMode,
+    isSyncing,
+    lastSyncTime,
     handleAddTask,
     handleUpdateTask,
     handleDeleteTask,

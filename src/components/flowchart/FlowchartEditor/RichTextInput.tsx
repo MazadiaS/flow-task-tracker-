@@ -23,80 +23,6 @@ function RichTextInput({ value, onChange, placeholder, className, onKeyDown, 'da
   const contentRef = useRef<HTMLDivElement>(null);
   const [selectionRange, setSelectionRange] = useState<{ start: number; end: number } | null>(null);
 
-  // Parse markdown-style formatting from plain text
-  const parseMarkdown = useCallback((text: string): React.ReactNode[] => {
-    const parts: React.ReactNode[] = [];
-    let lastIndex = 0;
-    let key = 0;
-
-    // Regex patterns for different formats
-    const patterns = [
-      { regex: /\*\*([^*]+)\*\*/g, type: 'bold' },
-      { regex: /\*([^*]+)\*/g, type: 'italic' },
-      { regex: /`([^`]+)`/g, type: 'code' },
-      { regex: /~~([^~]+)~~/g, type: 'strikethrough' },
-      { regex: /==([^=]+)==/g, type: 'highlight' },
-    ];
-
-    // Find all matches
-    const matches: Array<{ index: number; length: number; content: string; type: string; fullMatch: string }> = [];
-
-    patterns.forEach(({ regex, type }) => {
-      const matches_ = [...text.matchAll(regex)];
-      matches_.forEach(match => {
-        if (match.index !== undefined) {
-          matches.push({
-            index: match.index,
-            length: match[0].length,
-            content: match[1],
-            type,
-            fullMatch: match[0]
-          });
-        }
-      });
-    });
-
-    // Sort matches by index
-    matches.sort((a, b) => a.index - b.index);
-
-    // Build the formatted output
-    matches.forEach(match => {
-      // Add text before this match
-      if (match.index > lastIndex) {
-        parts.push(text.slice(lastIndex, match.index));
-      }
-
-      // Add formatted text
-      const content = match.content;
-      switch (match.type) {
-        case 'bold':
-          parts.push(<strong key={key++}>{content}</strong>);
-          break;
-        case 'italic':
-          parts.push(<em key={key++}>{content}</em>);
-          break;
-        case 'code':
-          parts.push(<code key={key++}>{content}</code>);
-          break;
-        case 'strikethrough':
-          parts.push(<s key={key++}>{content}</s>);
-          break;
-        case 'highlight':
-          parts.push(<mark key={key++}>{content}</mark>);
-          break;
-      }
-
-      lastIndex = match.index + match.length;
-    });
-
-    // Add remaining text
-    if (lastIndex < text.length) {
-      parts.push(text.slice(lastIndex));
-    }
-
-    return parts.length > 0 ? parts : [text];
-  }, []);
-
   // Handle text selection
   const handleMouseUp = useCallback(() => {
     const selection = window.getSelection();
@@ -211,6 +137,13 @@ function RichTextInput({ value, onChange, placeholder, className, onKeyDown, 'da
     }
   }, [autoFocus]);
 
+  // Sync the contentEditable with value prop (only when value changes externally)
+  useEffect(() => {
+    if (contentRef.current && contentRef.current.textContent !== value) {
+      contentRef.current.textContent = value;
+    }
+  }, [value]);
+
   return (
     <>
       <div
@@ -223,9 +156,7 @@ function RichTextInput({ value, onChange, placeholder, className, onKeyDown, 'da
         onMouseUp={handleMouseUp}
         data-block-id={blockId}
         data-placeholder={placeholder}
-      >
-        {parseMarkdown(value)}
-      </div>
+      />
 
       {showToolbar && (
         <>

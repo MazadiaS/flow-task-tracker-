@@ -2,6 +2,7 @@ import { useState, useEffect, memo } from 'react';
 import type { AppState, DaySession as DaySessionType, DayArchive, ArchivedTask, Task } from '../../types';
 import { formatTime, formatDurationShort, isToday, getTodayDateString, isSameLocalDate } from '../../utils/timeUtils';
 import EndDayModal from '../modals/EndDayModal';
+import UserMenu from '../Auth/UserMenu';
 import './DaySession.css';
 
 interface Props {
@@ -245,6 +246,9 @@ function DaySession({ state, setState, onViewChange, onShowArchive, onShowBackup
   if (!state.currentDay.isActive) {
     return (
       <div className="day-session-start">
+        <div className="user-menu-container">
+          <UserMenu />
+        </div>
         <div className="start-day-container">
           <h1 className="app-title">Flow</h1>
           <h2 className="current-date">{new Date().toLocaleDateString('en-US', {
@@ -279,9 +283,12 @@ function DaySession({ state, setState, onViewChange, onShowArchive, onShowBackup
         <span className="day-started">Day started at: {state.activeDaySession ? formatTime(state.activeDaySession.startTime) : '-'}</span>
         <span className="day-duration">Day duration: {formatDurationShort(currentDayDuration)}</span>
       </div>
-      <button className="btn btn-end-day" onClick={confirmEndDay}>
-        END DAY
-      </button>
+      <div className="session-actions">
+        <UserMenu />
+        <button className="btn btn-end-day" onClick={confirmEndDay}>
+          END DAY
+        </button>
+      </div>
     </div>
   );
 }
