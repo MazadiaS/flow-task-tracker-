@@ -15,12 +15,19 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+const noopError = { error: new Error('Supabase not configured') };
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!supabase) {
+      setLoading(false);
+      return;
+    }
+
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
@@ -41,16 +48,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const signIn = useCallback(async (email: string, password: string) => {
+    if (!supabase) return noopError;
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     return { error: error as Error | null };
   }, []);
 
   const signUp = useCallback(async (email: string, password: string) => {
+    if (!supabase) return noopError;
     const { error } = await supabase.auth.signUp({ email, password });
     return { error: error as Error | null };
   }, []);
 
   const signInWithGoogle = useCallback(async () => {
+    if (!supabase) return noopError;
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
@@ -61,6 +71,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const signInWithGitHub = useCallback(async () => {
+    if (!supabase) return noopError;
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'github',
       options: {
@@ -71,6 +82,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const signOut = useCallback(async () => {
+    if (!supabase) return;
     await supabase.auth.signOut();
   }, []);
 

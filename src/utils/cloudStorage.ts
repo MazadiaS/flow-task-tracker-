@@ -4,6 +4,7 @@ import type { GoalPlan } from '../types/goals';
 
 // Save app state to Supabase
 export async function saveStateToCloud(userId: string, state: AppState): Promise<boolean> {
+  if (!supabase) return false;
   try {
     const { error } = await supabase
       .from('app_state')
@@ -34,6 +35,7 @@ export async function saveStateToCloud(userId: string, state: AppState): Promise
 
 // Load app state from Supabase
 export async function loadStateFromCloud(userId: string): Promise<AppState | null> {
+  if (!supabase) return null;
   try {
     const { data, error } = await supabase
       .from('app_state')
@@ -69,6 +71,7 @@ export async function loadStateFromCloud(userId: string): Promise<AppState | nul
 
 // Save a goal plan to Supabase
 export async function saveGoalPlanToCloud(userId: string, plan: GoalPlan): Promise<boolean> {
+  if (!supabase) return false;
   try {
     const { error } = await supabase
       .from('goal_plans')
@@ -96,6 +99,7 @@ export async function saveGoalPlanToCloud(userId: string, plan: GoalPlan): Promi
 
 // Load all goal plans from Supabase
 export async function loadGoalPlansFromCloud(userId: string): Promise<GoalPlan[]> {
+  if (!supabase) return [];
   try {
     const { data, error } = await supabase
       .from('goal_plans')
@@ -117,6 +121,7 @@ export async function loadGoalPlansFromCloud(userId: string): Promise<GoalPlan[]
 
 // Delete a goal plan from Supabase
 export async function deleteGoalPlanFromCloud(planId: string): Promise<boolean> {
+  if (!supabase) return false;
   try {
     const { error } = await supabase
       .from('goal_plans')
@@ -136,6 +141,7 @@ export async function deleteGoalPlanFromCloud(planId: string): Promise<boolean> 
 
 // Create user profile after signup
 export async function createUserProfile(userId: string, email: string): Promise<boolean> {
+  if (!supabase) return false;
   try {
     const { error } = await supabase
       .from('profiles')
